@@ -3,24 +3,32 @@ export const initialState = {
     playlists: [],
     playing: false,
     item : null,
-    token:'BQD86LTgxApIHHDY6S6AsqG9TGeZ4mSgoJj4HDkBM4Prqbbhe0FXtTgaqFUFCWRrh8X4aqMMo7w-KJIzG7LLpyg_7yPV2MVGh79LpaICXRM0e3b1OXfC0W5_eY3thU3HvyrfvJo-y4BjxS60nYcLwjZ6Cldgtzp5ZwSNfS6XoWa_9JQgyfCg'
+    //remove after development
+    token:null
+    //BQDo-iP136wm35x775a71Fzp2npKzGsp2oXPgJhdZ8kXsO7A-AY8KktTSq2XVtwLLUI2Yt7YlPgFX67ly45Wu0jgIrLaNjEjFinfzPZ_l_m1Z51fJ8ytfaiQkj_xfWLbzkQzjr4kwqdi4WKt3ACAlkAByMtUin_PeX5_UxHR_iGSIDPvOL3t
 };
 
 export const reducer = (state, action) => {
     console.log(action);
     switch (action.type) {
         case "SET_USER":
-            return{
+            return {
                 ...state,
-                user:action.user
-            }
+                user:action.user,
+            };
         case "SET_TOKEN":
             return {
                 ...state,
                 token: action.token
-            }
-        default:
-            return state;
+            };
+            
+        case "SET_PLAYLISTS":
+            return{
+                ...state,
+                playlists: action.playlists,
+            };
+
+        default: return state;
     }
 }
 
